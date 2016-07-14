@@ -1,3 +1,4 @@
-<h1>
-  {{title}}
-</h1>
+<year-select [files] = "files" (change)="selectedYear = $event"></year-select>
+<month-select [months] = "months" (change)="selectedMonth = $event"></month-select>
+<search-box (update)="term = $event"></search-box>
+<file-list  [fileList]="files" [term]="term" [selectedYear]="selectedYear" [selectedMonth]="selectedMonth" ></file-list>
