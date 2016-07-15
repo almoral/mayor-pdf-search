@@ -5,8 +5,16 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class FixUrl implements PipeTransform {
 
-  transform(value: any, args?: any): any {
-    return null;
-  }
+transform(value:string){
+
+     //Remove inetpub/WWW/
+
+     let domain:string = value.substring(0, value.indexOf('inetpub'));
+
+     let realPath: string = value.substring(value.indexOf('WWW/') + 4, value.length);
+
+     return domain + realPath;
+	  
+    };
 
 }

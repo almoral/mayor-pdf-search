@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter  } from '@angular/core';
 
 @Component({
   moduleId: module.id,
@@ -6,11 +6,18 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: 'month-selector.component.html',
   styleUrls: ['month-selector.component.css']
 })
-export class MonthSelectorComponent implements OnInit {
+export class MonthSelectorComponent {
+
+	@Input() months = "";
+	@Output() selectMonth = new EventEmitter();
+
+
+	onChange(selectedValue: string){
+		console.log('selected value: ', selectedValue);
+		this.selectMonth.emit(selectedValue);
+	}
 
   constructor() {}
 
-  ngOnInit() {
-  }
 
 }

@@ -33,6 +33,7 @@ const barrels: string[] = [
   'app/month-selector',
   'app/search-box',
   'app/year-selector',
+  'app/reset-button',
   /** @cli-barrel */
 ];
 

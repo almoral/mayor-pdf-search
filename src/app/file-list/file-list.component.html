@@ -1,3 +1,5 @@
-<p>
-  file-list works!
-</p>
+<ol>
+	<li *ngFor="let file of (fileList | async | search:term:selectedYear:selectedMonth)"> 
+		<p><a href="{{file.filePath | fixUrl}}">{{file.label}}</a> <span>{{file.fileSize}}</span></p>
+	</li>
+</ol>
