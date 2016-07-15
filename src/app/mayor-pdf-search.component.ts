@@ -1,6 +1,7 @@
 import {Component} from '@angular/core'
 import {SearchBoxComponent} from './search-box'
 import {FileListComponent} from './file-list'
+import {HTTP_PROVIDERS} from '@angular/http'
 import { PdfsService } from './pdfs.service'
 import { MDCRequest } from './mdc-request'
 import {YearSelectorComponent} from './year-selector'
@@ -13,7 +14,7 @@ import {ResetButtonComponent} from './reset-button'
   directives: [YearSelectorComponent, MonthSelectorComponent, SearchBoxComponent, ResetButtonComponent, FileListComponent],
   templateUrl: 'mayor-pdf-search.component.html',
   styleUrls: ['mayor-pdf-search.component.css'],
-  providers: [MDCRequest]
+  providers: [MDCRequest, HTTP_PROVIDERS, PdfsService]
 })
 export class MayorPdfSearchAppComponent {
 
