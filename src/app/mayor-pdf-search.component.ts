@@ -6,13 +6,13 @@ import { PdfsService } from './pdfs.service'
 import {YearSelectorComponent} from './year-selector'
 import {MonthSelectorComponent} from './month-selector'
 import {ResetButtonComponent} from './reset-button'
-import {Router, ActivatedRoute, ROUTER_DIRECTIVES} from '@angular/router'
+
 
 
 @Component({
   moduleId: module.id,
   selector: 'mayor-pdf-search-app',
-  directives: [YearSelectorComponent, MonthSelectorComponent, SearchBoxComponent, ResetButtonComponent, FileListComponent, ROUTER_DIRECTIVES],
+  directives: [YearSelectorComponent, MonthSelectorComponent, SearchBoxComponent, ResetButtonComponent, FileListComponent],
   templateUrl: 'mayor-pdf-search.component.html',
   styleUrls: ['mayor-pdf-search.component.css'],
   providers: [HTTP_PROVIDERS, PdfsService]
@@ -23,29 +23,21 @@ export class MayorPdfSearchAppComponent {
 
 	public files:any;
 	public months: string[] = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-	private sub: any;
-	private params:any;
 
-	private folder:any;
-	private year: any;
-	private month: any;
 
-	constructor(private pdfService: PdfsService, private router: Router){}
+	constructor(private pdfService: PdfsService){}
 
 	ngOnInit(){
 
-		this.sub = this.router
-			.routerState
-			.queryParams
-			.subscribe(params => {
-				this.folder = params['folder'] !== undefined ? params['folder'] : 'remarks';
-				this.year = ['year'] !== undefined ? params['year'] : "";
-				this.month = ['month'] !== undefined ? params['month'] : "";
 
-				this.files = this.pdfService.getFiles(params).getValue();
-			});
+		let opts:MDCRequest = {
+			url: 'http://www.miamidade.gov/mayor/searchApp/searchHandler.ashx?',
+			targetFolder: 'memos-and-reports',
+			targetYear: '',
+			targetMonth: ''
+		}
 
-
-	}
+				this.files = this.pdfService.getFiles(opts).getValue();
+		};
 
 }
