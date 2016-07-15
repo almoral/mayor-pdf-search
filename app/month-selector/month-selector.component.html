@@ -1,0 +1,6 @@
+		<div class="mdl-selectfield">
+		<select #selectedMonth (change)="onChange(selectedMonth.value)" class="month-select">
+		<option value=''>Please Select a Month</option>
+		<option *ngFor="let month of months" value="{{month}}">{{month}}</option>
+		</select>
+		</div>
