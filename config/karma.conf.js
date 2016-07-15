@@ -24,7 +24,8 @@ module.exports = function (config) {
       { pattern: 'config/karma-test-shim.js', included: true, watched: true },
 
       // Distribution folder.
-      { pattern: 'dist/**/*', included: false, watched: true }
+      { pattern: 'dist/**/*', included: false, watched: true },
+      'node_modules'
     ],
     exclude: [
       // Vendor packages might include spec files. We don't want to use those.
