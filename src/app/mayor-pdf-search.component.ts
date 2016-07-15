@@ -26,7 +26,7 @@ export class MayorPdfSearchAppComponent {
 	ngOnInit(){
 
 		let opts:MDCRequest = {
-			url: 'http://www.miamidade.gov/mayor/searchApp/searchHandler.ashx?',
+			url: 'https://www.miamidade.gov/mayor/searchApp/searchHandler.ashx?',
 			targetFolder: 'memos-and-reports',
 			targetYear: '',
 			targetMonth: ''
