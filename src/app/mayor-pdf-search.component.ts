@@ -27,14 +27,32 @@ export class MayorPdfSearchAppComponent {
 
 	constructor(private pdfService: PdfsService){}
 
+getParameterByName(name:string = '', url:string = ''){
+
+		if(!url) url = window.location.href;
+
+		name = name.replace(/[\[\]]/g, "\\$&");
+    	var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    	
+    	if (!results) return null;
+    	
+    	if (!results[2]) return '';
+    	
+    	console.log('returned param: ', decodeURIComponent(results[2].replace(/\+/g, " ")))
+
+    	return decodeURIComponent(results[2].replace(/\+/g, " "));
+	}
+	
+
 	ngOnInit(){
 
 
 		let opts:MDCRequest = {
 			url: 'http://www.miamidade.gov/mayor/searchApp/searchHandler.ashx?',
-			targetFolder: 'memos-and-reports',
-			targetYear: '',
-			targetMonth: ''
+			targetFolder: this.getParameterByName('folder') === null ? "remarks": this.getParameterByName('folder'),
+			targetYear: this.getParameterByName('year') === null ? "": this.getParameterByName('year'),
+			targetMonth: this.getParameterByName('month') === null ? "": this.getParameterByName('month'),
 		}
 
 				this.files = this.pdfService.getFiles(opts).getValue();

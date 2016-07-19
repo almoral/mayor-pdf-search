@@ -1,4 +1,4 @@
-import { Http, Response, URLSearchParams } from '@angular/http'
+import { Http, Response } from '@angular/http'
 import { Injectable } from '@angular/core'
 import { Observable } from 'rxjs/Observable'
 import 'rxjs/add/observable/throw'
@@ -12,34 +12,21 @@ export class PdfsService {
 
 constructor(private http:Http){};
 
-	_getFiles(params: any){
-		//const BASE_URL = 'http://www.miamidade.gov/mayor/searchApp/searchHandler.ashx?';
-
-		const BASE_URL = 'http://s0144035/migr/main/Production/mayor/WORKAREA/wa1/mayor/searchApp/searchHandler.ashx?';
-
-		let options = new URLSearchParams();
+	_getFiles(options: MDCRequest){
 
 
-		options.set('folder', params.folder);
-		options.set('year', params.year);
-		options.set('month', params.month);
+		let opts = options;
+		let url: string = opts.url;
+		let target: string = opts.targetFolder == '' ? opts.targetFolder : 'folder=' + opts.targetFolder;
+		let year: string = opts.targetYear;
+		let month: string = opts.targetMonth;
 
-		try{
-
-return this.http.get(BASE_URL, {search: options}).map((res: Response) => res.json()).catch(this.handleError);
-
-		} catch(e){
-
-			console.log("error: ", e);
-		}
-		
+		return this.http.get(url + target + '&year=' + year + '&month=' + month).map((res: Response) => res.json()).catch(this.handleError);
 	}
 
-	getFiles(params: any){
+	getFiles(opts: MDCRequest){
 
-		//console.log('params are: ', params);
-
-		let behaviorSubject: BehaviorSubject<any> = new BehaviorSubject(this._getFiles(params));
+		let behaviorSubject: BehaviorSubject<any> = new BehaviorSubject(this._getFiles(opts));
 
 		return behaviorSubject;
 	}
