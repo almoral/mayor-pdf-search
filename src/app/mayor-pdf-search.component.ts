@@ -6,7 +6,7 @@ import { PdfsService } from './pdfs.service'
 import {YearSelectorComponent} from './year-selector'
 import {MonthSelectorComponent} from './month-selector'
 import {ResetButtonComponent} from './reset-button'
-
+import {MDCRequest} from './mdc-request'
 
 
 @Component({
