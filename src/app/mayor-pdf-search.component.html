@@ -3,3 +3,4 @@
 <app-search-box (update)="term = $event"></app-search-box>
 <app-reset-button (click)="selectedYear = ''; selectedMonth=''; term=' '"></app-reset-button>
 <app-file-list [fileList]="files" [term]="term" [selectedYear]="selectedYear" [selectedMonth]="selectedMonth" >Loading...</app-file-list>
+<router-outlet></router-outlet>
