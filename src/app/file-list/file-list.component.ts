@@ -1,12 +1,15 @@
 import { Component, Input } from '@angular/core';
 import {Search} from '../search.pipe'
 import {FixUrl} from '../fix-url.pipe'
+import {PaginatePipe, PaginationControlsCmp, PaginationService} from 'ng2-pagination';
 
 
 @Component({
   moduleId: module.id,
   selector: 'app-file-list',
-  pipes: [Search, FixUrl],
+  directives: [PaginationControlsCmp],
+  pipes: [Search, FixUrl, PaginatePipe],
+  providers: [PaginationService],
   templateUrl: 'file-list.component.html',
   styleUrls: ['file-list.component.css']
 })
