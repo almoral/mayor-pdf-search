@@ -8,7 +8,10 @@ export class UniqueValues implements PipeTransform {
 	  transform(items: any[] = []){
 
     if(items !== null && items !== undefined){
-	  	let tempArray:string[] = [];
+	  	let tempArray:any[] = [{
+        'label':'Please Select a Year',
+        'year': ''
+      }];
 	  	let unique = {};
 
       //this.items = items;
@@ -19,7 +22,10 @@ export class UniqueValues implements PipeTransform {
           if(typeof(unique[items[i].year]) == "undefined"){
     			
     			  if(items[i].year !== null && items[i].year.length > 0)
-    				  tempArray.push(items[i].year)
+    				  tempArray.push({
+                'label': items[i].year,
+                'year': items[i].year
+              })
     		  }
 
     		  unique[items[i].year] = 0;

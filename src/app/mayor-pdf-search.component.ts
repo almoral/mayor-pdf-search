@@ -22,7 +22,21 @@ import {MDCRequest} from './mdc-request'
 export class MayorPdfSearchAppComponent {
 
 	public files:any;
-	public months: string[] = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+	public months: any[] = [
+		{'label': 'Please Select a Month', 'value': ''}, 
+		{'label':'January', 'value': 'January'}, 
+		{'label':'February', 'value': 'February'},
+		{'label': 'March', 'value': 'March'},
+		{'label': 'April', 'value': 'April'},
+		{'label':'May', 'value': 'May'},
+		{'label': 'June', 'value': 'June'},
+		{'label': 'July', 'value': 'July'},
+		{'label': 'August', 'value': 'August'},
+		{'label':'September', 'value': 'September'},
+		{'label': 'October', 'value': 'October'},
+		{'label': 'November', 'value': 'November'},
+		{'label': 'December', 'value': 'December'}
+		];
 
 
 	constructor(private pdfService: PdfsService){}
