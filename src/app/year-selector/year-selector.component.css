@@ -37,8 +37,8 @@ select:focus {
 }
 .mdl-selectfield:after {
   position: absolute;
-  top: 0.75em;
-  left: 11em;
+  top: 1.25em;
+  left: 14em;
   /* Styling the down arrow */
   width: 0;
   height: 0;

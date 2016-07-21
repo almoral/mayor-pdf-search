@@ -1,6 +1,5 @@
 <div class="mdl-selectfield">
-	<select #selectedYear (change)="onChange(selectedYear.value)" class="year-select">
-	<option value=''>Please Select a Year</option>
-	<option *ngFor="let item of (files | async | uniqueValues:item)" value="{{item}}">{{item}}</option>
+	<select class="year-select">
+	<option *ngFor="let item of (files | async | uniqueValues:item)" value="{{item.year}}">{{item.label}}</option>
 	</select>
 </div>

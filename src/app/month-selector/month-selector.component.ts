@@ -12,11 +12,6 @@ export class MonthSelectorComponent {
 	@Output() selectMonth = new EventEmitter();
 
 
-	onChange(selectedValue: string){
-		console.log('selected value: ', selectedValue);
-		this.selectMonth.emit(selectedValue);
-	}
-
   constructor() {}
 
 
