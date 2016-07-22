@@ -24,7 +24,10 @@ export class FileListComponent {
 
 	@Input() fileList: any;
 
-  constructor() {}
+  constructor() {
+
+    console.log('month is: ', this.selectedMonth)
+  }
 
 
 }
