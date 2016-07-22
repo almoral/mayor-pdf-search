@@ -23,7 +23,7 @@ export class MayorPdfSearchAppComponent {
 
 	public files:any;
 	public months: any[] = [
-		{'label': 'Please Select a Month', 'value': ''}, 
+		{'label': 'Please Select a Month', 'value': false}, 
 		{'label':'January', 'value': 'January'}, 
 		{'label':'February', 'value': 'February'},
 		{'label': 'March', 'value': 'March'},
