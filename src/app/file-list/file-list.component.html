@@ -1,8 +1,8 @@
-<ol>
-	<li *ngFor="let file of (fileList | async | search:term:selectedYear:selectedMonth| paginate: { itemsPerPage: 10, currentPage: page })"> 
+<ul class="file-list">
+	<li class="file-list-item" *ngFor="let file of (fileList | async | search:term:selectedYear:selectedMonth| paginate: { itemsPerPage: 30, currentPage: page })"> 
 		<p><a href="{{file.filePath | fixUrl}}">{{file.label}}</a> <span>{{file.fileSize}}</span></p>
 	</li>
-</ol>
+</ul>
 
 <div class="is-text-centered">
     <pagination-controls (pageChange)="page = $event"></pagination-controls>
