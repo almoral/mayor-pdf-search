@@ -10,7 +10,7 @@ export class UniqueValues implements PipeTransform {
     if(items !== null && items !== undefined){
 	  	let tempArray:any[] = [{
         'label':'Please Select a Year',
-        'year': ''
+        'year': 'false'
       }];
 	  	let unique = {};
 
