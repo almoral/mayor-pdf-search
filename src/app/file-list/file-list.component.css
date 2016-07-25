@@ -1,0 +1,13 @@
+.file-list{
+	font-size: 14px;
+}
+
+.file-list-item{
+	line-height: 150%;
+}
+
+
+.ng2-pagination{
+	position: relative;
+	padding-top: 40px !important;
+}
