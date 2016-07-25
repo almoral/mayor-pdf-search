@@ -1,7 +1,7 @@
 
 <ul class="file-list">
 	<li class="file-list-item" *ngFor="let file of (fileList | async | search:term:selectedYear:selectedMonth| paginate: { itemsPerPage: 30, currentPage: page })"> 
-		<a href="{{file.filePath | fixUrl}}">{{file.label}}</a> <span>{{file.fileSize}}</span>
+		<a target="_blank" href="{{file.filePath | fixUrl}}">{{file.label}}</a> <span>{{file.fileSize}}</span>
 	</li>
 </ul>
 
