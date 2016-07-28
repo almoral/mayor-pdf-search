@@ -13,6 +13,7 @@ export class ResetButtonComponent {
 	@Input() selectedMonth:any;
 
 	@Output() reset = new EventEmitter();
+	@Output() isActive:boolean = false;
 
 
 }
