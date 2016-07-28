@@ -2,6 +2,10 @@
     <pagination-controls (pageChange)="page = $event"></pagination-controls>
 </div>
 
+<div class="is-text-centered">
+    <pagination-controls (pageChange)="page = $event"></pagination-controls>
+</div>
+
 <ul class="file-list">
 	<li class="file-list-item" *ngFor="let file of (fileList | async | search:term:selectedYear:selectedMonth| paginate: { itemsPerPage: 30, currentPage: page })"> 
 		<a target="_blank" href="{{file.filePath | fixUrl}}">{{file.label}}</a> <span>{{file.fileSize}}</span>
