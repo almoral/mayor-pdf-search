@@ -63,7 +63,7 @@ getParameterByName(name:string = '', url:string = ''){
 
 
 		let opts:MDCRequest = {
-			url: 'http://www.miamidade.gov/mayor/searchApp/searchHandler.ashx?',
+			url: 'https://www.miamidade.gov/mayor/searchApp/searchHandler.ashx?',
 			targetFolder: this.getParameterByName('folder') === null ? "memos-and-reports": this.getParameterByName('folder'),
 			targetYear: this.getParameterByName('year') === null ? "": this.getParameterByName('year'),
 			targetMonth: this.getParameterByName('month') === null ? "": this.getParameterByName('month'),

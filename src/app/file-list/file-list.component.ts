@@ -26,7 +26,7 @@ export class FileListComponent {
 
   constructor() {
 
-    console.log('month is: ', this.selectedMonth)
+
   }
 
 
