@@ -6,8 +6,26 @@
 	line-height: 150%;
 }
 
-
 .ng2-pagination{
 	position: relative;
 	padding-top: 40px !important;
 }
+
+.message{
+	width: 400px;
+	height: 100px;
+	margin: 0 auto;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	text-align: center;
+}
+
+.emptyResultsMessage{
+	display: none;
+}
+
+.emptyResultsMessage:nth-last-child(1){
+	
+	display: block;
+}
+

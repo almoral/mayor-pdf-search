@@ -2,17 +2,17 @@
     <pagination-controls (pageChange)="page = $event"></pagination-controls>
 </div>
 
-<ul class="file-list" *ngFor="let file of (fileList | async | search:term:selectedYear:selectedMonth| paginate: { itemsPerPage: 30, currentPage: page }); #first = first;  #last = last">
+<div class="file-list-container">
 
+<ul class="file-list">
+<div class="emptyResultsMessage message">No Results Found.</div>
 
-<div *ngIf="first && last">No results found.</div>
-
-
-	<li class="file-list-item" > 
+	<li class="file-list-item" *ngFor="let file of (fileList | async | search:term:selectedYear:selectedMonth| paginate: { itemsPerPage: 30, currentPage: page })"> 
 		<a target="_blank" href="{{file.filePath | fixUrl}}">{{file.label}}</a> <span>{{file.fileSize}}</span>
 	</li>
-</ul>
 
+</ul>
+</div>
 
 <div class="is-text-centered">
     <pagination-controls (pageChange)="page = $event"></pagination-controls>

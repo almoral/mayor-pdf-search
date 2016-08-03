@@ -1,4 +1,4 @@
-import {Component} from '@angular/core'
+import {Component, Output, Input, EventEmitter} from '@angular/core'
 import {SearchBoxComponent} from './search-box'
 import {FileListComponent} from './file-list'
 import {HTTP_PROVIDERS, URLSearchParams} from '@angular/http'
@@ -39,9 +39,12 @@ export class MayorPdfSearchAppComponent {
 		];
 
 
-	constructor(private pdfService: PdfsService){}
 
-getParameterByName(name:string = '', url:string = ''){
+	constructor(private pdfService: PdfsService){
+
+	}
+
+	getParameterByName(name:string = '', url:string = ''){
 
 		if(!url) url = window.location.href;
 
@@ -53,14 +56,12 @@ getParameterByName(name:string = '', url:string = ''){
     	
     	if (!results[2]) return '';
     	
-    	console.log('returned param: ', decodeURIComponent(results[2].replace(/\+/g, " ")))
 
     	return decodeURIComponent(results[2].replace(/\+/g, " "));
 	}
-	
+
 
 	ngOnInit(){
-
 
 		let opts:MDCRequest = {
 			url: 'https://www.miamidade.gov/mayor/searchApp/searchHandler.ashx?',
@@ -69,7 +70,10 @@ getParameterByName(name:string = '', url:string = ''){
 			targetMonth: this.getParameterByName('month') === null ? "": this.getParameterByName('month'),
 		}
 
-				this.files = this.pdfService.getFiles(opts).getValue();
-		};
+		this.files = this.pdfService.getFiles(opts).getValue();
+
+	};
+
+
 
 }
