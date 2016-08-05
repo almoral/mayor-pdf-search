@@ -24,7 +24,6 @@ export class FileListComponent {
 
 	@Input() fileList: any;
 
-
   constructor() {}
 
 

@@ -9,11 +9,14 @@ transform(value:string){
 
      //Remove inetpub/WWW/
 
-     let domain:string = value.substring(0, value.indexOf('inetpub'));
+     if(value){
 
-     let realPath: string = value.substring(value.indexOf('WWW/') + 4, value.length);
+     	let domain:string = value.substring(0, value.indexOf('inetpub'));
 
-     return domain + realPath;
+     	let realPath: string = value.substring(value.indexOf('WWW/') + 4, value.length);
+
+    	return domain + realPath;
+ 	}
 	  
     };
 

@@ -5,10 +5,18 @@
 <div class="file-list-container">
 
 <ul class="file-list">
-<div class="emptyResultsMessage message">No Results Found.</div>
+
 
 	<li class="file-list-item" *ngFor="let file of (fileList | async | search:term:selectedYear:selectedMonth| paginate: { itemsPerPage: 30, currentPage: page })"> 
-		<a target="_blank" href="{{file.filePath | fixUrl}}">{{file.label}}</a> <span>{{file.fileSize}}</span>
+
+	<div *ngIf="file.showMessage" class="emptyResultsMessage message">
+		<p>
+		{{file.showMessage}}
+		</p>
+	</div>
+
+		<a  target="_blank" href="{{file.filePath | fixUrl}}">{{file.label}}</a> <span>{{file.fileSize}}</span>
+
 	</li>
 
 </ul>
