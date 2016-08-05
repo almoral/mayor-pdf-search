@@ -1,5 +1,5 @@
 import { Http, Response } from '@angular/http'
-import { Injectable } from '@angular/core'
+import { Injectable, Output } from '@angular/core'
 import { Observable } from 'rxjs/Observable'
 import 'rxjs/add/observable/throw'
 import 'rxjs/add/operator/catch'
@@ -10,10 +10,11 @@ import {BehaviorSubject} from 'rxjs/Rx'
 @Injectable()
 export class PdfsService {
 
+@Output() isHidden:boolean;
+
 constructor(private http:Http){};
 
 	_getFiles(options: MDCRequest){
-
 
 		let opts = options;
 		let url: string = opts.url;
@@ -30,6 +31,8 @@ constructor(private http:Http){};
 
 		return behaviorSubject;
 	}
+
+
 
 	private handleError (error: any){
 		let errMsg = (error.message) ? error.message : error.status ? `${error.status} - ${error.statusText}` : 'Server error';

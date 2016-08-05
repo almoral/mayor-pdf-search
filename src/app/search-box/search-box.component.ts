@@ -10,12 +10,23 @@ export class SearchBoxComponent {
 
 	@Input() input = " ";	
 	@Output() update = new EventEmitter();
+  @Input() isActive:boolean = false;
 
   constructor() {}
 
   ngOnInit() {
 
   	this.update.emit(" ");
+  }
+
+  checkValue(value:string){
+
+    if(value != ''){
+      this.isActive = true;
+    } else {
+      this.isActive = false;
+    }
+
   }
 
 }

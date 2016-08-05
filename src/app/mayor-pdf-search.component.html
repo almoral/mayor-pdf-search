@@ -1,6 +1,6 @@
 <form>
-<app-search-box (update)="term = $event"></app-search-box>
-<app-reset-button (click)="selectedYear = ''; selectedMonth=''; term=' '"></app-reset-button>
+<app-search-box (update)="term = $event" [isActive] = "isActive"></app-search-box>
+<app-reset-button (click)="selectedYear = ''; selectedMonth=''; term=''"></app-reset-button>
 <app-year-selector [files] = "files" (change)="selectedYear = $event"></app-year-selector>
 <app-month-selector [months] = "months" (change)="selectedMonth = $event"></app-month-selector>
 </form>

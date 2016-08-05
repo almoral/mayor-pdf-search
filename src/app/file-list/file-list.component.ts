@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import {Search} from '../search.pipe'
 import {FixUrl} from '../fix-url.pipe'
 import {PaginatePipe, PaginationControlsCmp, PaginationService} from 'ng2-pagination';
@@ -24,10 +24,7 @@ export class FileListComponent {
 
 	@Input() fileList: any;
 
-  constructor() {
-
-    console.log('month is: ', this.selectedMonth)
-  }
+  constructor() {}
 
 
 }

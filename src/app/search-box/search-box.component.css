@@ -29,7 +29,7 @@ label          {
 }
 
 /* active state */
-input:focus ~ label, input:invalid ~ label    {
+input.active ~ label, input:focus ~ label, input:invalid ~ label    {
   top:-20px;
   font-size:14px;
   color:#5264AE;
@@ -56,7 +56,7 @@ input:focus ~ label, input:invalid ~ label    {
 }
 
 /* active state */
-input:focus ~ .bar:before, input:focus ~ .bar:after {
+input.active ~ .bar:before, input.active ~ .bar:after, input:focus ~ .bar:before, input:focus ~ .bar:after {
   width:50%;
 }
 
